@@ -1,0 +1,18 @@
+Comando para criar a database, depois cria a tabela usuarios e por fim adiciona seus atributos.
+
+CREATE DATABASE academia;
+USE academia;
+
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(32) NOT NULL,
+    tipo_usuario VARCHAR(20) DEFAULT 'aluno'
+);
+
+
+Adicionar um usuário na tabela
+
+INSERT INTO usuarios (nome, email, senha, tipo_usuario)
+VALUES ('Aluno', 'aluno@aluno.com', MD5('123'), 'aluno');
