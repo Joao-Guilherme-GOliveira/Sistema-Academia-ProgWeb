@@ -29,6 +29,7 @@ $nome = $_SESSION['nome'];
         <a href="index.php">Início</a>
         <a href="professores.php">Instrutores</a>
         <a href="imc.php">Dieta Personalizada</a>
+        <a href="planos.php">Planos</a>
         <a href="sair.php" class="sair">Sair</a>
     </nav>
 </header>

@@ -1,0 +1,91 @@
+.planos-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.planos-container h1 {
+    font-size: 34px;
+    color: #111;
+}
+
+.planos-container p {
+    margin-top: 8px;
+    color: #666;
+}
+
+.planos-cards {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.plano-card {
+    background: white;
+    width: 300px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    border-top: 6px solid #ff5a00;
+}
+
+.plano-card:hover {
+    transform: translateY(-6px);
+}
+
+.plano-card h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.plano-card h3 {
+    font-size: 24px;
+    color: #ff5a00;
+    margin-bottom: 20px;
+}
+
+.plano-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.plano-card li {
+    margin-bottom: 12px;
+    color: #444;
+}
+
+.plano-card li::before {
+    content: "✓ ";
+    color: #ff5a00;
+    font-weight: bold;
+}
+
+.plano-card button {
+    width: 100%;
+    background: #ff5a00;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.plano-card button:hover {
+    background: #e64a00;
+}
+
+.bronze {
+    border-top-color: #cd7f32;
+}
+
+.prata {
+    border-top-color: #b0b0b0;
+}
+
+.ouro {
+    border-top-color: #ffd700;
+}
