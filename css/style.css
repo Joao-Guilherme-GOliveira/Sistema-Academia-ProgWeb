@@ -100,6 +100,7 @@ main {
 }
 .imc-container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
@@ -118,13 +119,12 @@ main {
     gap: 12px;
 }
 
-/* Altura e Peso lado a lado */
 .imc-form input:nth-child(1),
 .imc-form input:nth-child(2){
     width: calc(50% - 6px);
 }
 
-/* Idade embaixo ocupando toda largura */
+
 .imc-form input:nth-child(3){
     width: 100%;
 }
@@ -159,4 +159,68 @@ main {
 .imc-form button:hover{
     background: #e64a00;
     transform: scale(1.03);
+}
+.imc-container h2 {
+    font-size: 32px;
+    color: #111;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.imc-form select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+}
+
+.imc-form select:focus {
+    border-color: #ff5a00;
+    box-shadow: 0 0 6px rgba(255,90,0,0.4);
+}
+
+#genero,
+#atividade {
+    width: calc(50% - 6px);
+}
+
+#objetivo {
+    width: 100%;
+}
+
+.resultado {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #fff3eb;
+    border-left: 5px solid #ff5a00;
+    color: #333;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.resultado-dieta,
+.plano-alimentar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid #ff5a00;
+}
+
+.resultado-dieta h3,
+.plano-alimentar h3 {
+    color: #ff5a00;
+    margin-bottom: 10px;
+}
+
+.macro-item {
+    background: #fff3eb;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
