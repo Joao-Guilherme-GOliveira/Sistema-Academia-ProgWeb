@@ -1,4 +1,4 @@
-Comando para criar a database, depois cria a tabela usuarios e por fim adiciona seus atributos.
+ 	Comando para criar a database, depois cria a tabela usuarios e por fim adiciona seus atributos.
 
 CREATE DATABASE academia;
 USE academia;
@@ -113,14 +113,17 @@ CREATE TABLE exercicio_equipamento (
 CREATE TABLE assinaturas (
     id_assinatura INT AUTO_INCREMENT PRIMARY KEY,
     id_aluno INT NOT NULL,
+    id_plano INT NOT NULL,
     data_inicio DATE,
     data_fim DATE,
     status VARCHAR(20),
 
     FOREIGN KEY(id_aluno)
-        REFERENCES alunos(id_aluno)
-);
+        REFERENCES alunos(id_aluno),
 
+    FOREIGN KEY(id_plano)
+        REFERENCES planos(id_plano)
+);
 -- ==========================
 -- PAGAMENTOS
 -- ==========================
@@ -152,7 +155,23 @@ CREATE TABLE avaliacoes_fisicas (
         REFERENCES alunos(id_aluno)
 );
 
+
+CREATE TABLE planos (
+    id_plano INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    descricao TEXT
+);
+
 Adicionar um usuário na tabela
 
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Aluno', 'aluno@aluno.com', MD5('123'), 'aluno');
+
+INSERT INTO planos (nome_plano, valor, descricao) VALUES
+
+('Bronze', 69.90, 'Acesso à musculação e avaliação física inicial.'),
+
+('Prata', 99.90, 'Musculação, aulas coletivas e reavaliação mensal.'),
+
+('Ouro', 149.90, 'Dieta personalizada, acesso ilimitado e prioridade no atendimento.');

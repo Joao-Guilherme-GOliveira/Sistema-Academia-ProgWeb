@@ -30,6 +30,9 @@ $nome = $_SESSION['nome'];
         <a href="professores.php">Instrutores</a>
         <a href="imc.php">Dieta Personalizada</a>
         <a href="planos.php">Planos</a>
+        <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
+            <a href="crud/admin.php" class="admin-link">Admin</a>
+        <?php endif; ?>
         <a href="sair.php" class="sair">Sair</a>
     </nav>
 </header>
