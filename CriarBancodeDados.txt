@@ -11,6 +11,146 @@ CREATE TABLE usuarios (
     tipo_usuario VARCHAR(20) DEFAULT 'aluno'
 );
 
+CREATE TABLE alunos (
+    id_aluno INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    cpf VARCHAR(14),
+    telefone VARCHAR(20),
+    data_nasc DATE,
+    endereco VARCHAR(150),
+
+    FOREIGN KEY (id_usuario)
+        REFERENCES usuarios(id_usuario)
+);
+
+-- ==========================
+-- INSTRUTORES
+-- ==========================
+CREATE TABLE instrutores (
+    id_instrutor INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    cref VARCHAR(20),
+    telefone VARCHAR(20),
+    especialidade VARCHAR(100),
+
+    FOREIGN KEY (id_usuario)
+        REFERENCES usuarios(id_usuario)
+);
+
+-- ==========================
+-- TREINOS
+-- ==========================
+CREATE TABLE treinos (
+    id_treino INT AUTO_INCREMENT PRIMARY KEY,
+    id_aluno INT NOT NULL,
+    id_instrutor INT NOT NULL,
+    nome VARCHAR(100),
+    objetivo VARCHAR(150),
+
+    FOREIGN KEY (id_aluno)
+        REFERENCES alunos(id_aluno),
+
+    FOREIGN KEY (id_instrutor)
+        REFERENCES instrutores(id_instrutor)
+);
+
+-- ==========================
+-- EXERCÍCIOS
+-- ==========================
+CREATE TABLE exercicios (
+    id_exercicio INT AUTO_INCREMENT PRIMARY KEY,
+    nome_exercicio VARCHAR(100),
+    series INT,
+    repeticoes INT,
+    descricao TEXT
+);
+
+-- ==========================
+-- TREINO X EXERCÍCIO
+-- ==========================
+CREATE TABLE treino_exercicios (
+    id_treino INT NOT NULL,
+    id_exercicio INT NOT NULL,
+
+    PRIMARY KEY(id_treino,id_exercicio),
+
+    FOREIGN KEY(id_treino)
+        REFERENCES treinos(id_treino),
+
+    FOREIGN KEY(id_exercicio)
+        REFERENCES exercicios(id_exercicio)
+);
+
+-- ==========================
+-- EQUIPAMENTOS
+-- ==========================
+CREATE TABLE equipamentos (
+    id_equipamento INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    descricao TEXT,
+    status VARCHAR(20)
+);
+
+-- ==========================
+-- EXERCÍCIO X EQUIPAMENTO
+-- ==========================
+CREATE TABLE exercicio_equipamento (
+    id_exercicio INT NOT NULL,
+    id_equipamento INT NOT NULL,
+
+    PRIMARY KEY(id_exercicio,id_equipamento),
+
+    FOREIGN KEY(id_exercicio)
+        REFERENCES exercicios(id_exercicio),
+
+    FOREIGN KEY(id_equipamento)
+        REFERENCES equipamentos(id_equipamento)
+);
+
+-- ==========================
+-- ASSINATURAS
+-- ==========================
+CREATE TABLE assinaturas (
+    id_assinatura INT AUTO_INCREMENT PRIMARY KEY,
+    id_aluno INT NOT NULL,
+    data_inicio DATE,
+    data_fim DATE,
+    status VARCHAR(20),
+
+    FOREIGN KEY(id_aluno)
+        REFERENCES alunos(id_aluno)
+);
+
+-- ==========================
+-- PAGAMENTOS
+-- ==========================
+CREATE TABLE pagamentos (
+    id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
+    id_assinatura INT NOT NULL,
+    valor DECIMAL(10,2),
+    data_pagamento DATE,
+    forma_pagamento VARCHAR(50),
+    status VARCHAR(20),
+
+    FOREIGN KEY(id_assinatura)
+        REFERENCES assinaturas(id_assinatura)
+);
+
+-- ==========================
+-- AVALIAÇÕES FÍSICAS
+-- ==========================
+CREATE TABLE avaliacoes_fisicas (
+    id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
+    id_aluno INT NOT NULL,
+    peso DECIMAL(5,2),
+    altura DECIMAL(5,2),
+    imc DECIMAL(5,2),
+    percentual_gordura DECIMAL(5,2),
+    data_avaliacao DATE,
+
+    FOREIGN KEY(id_aluno)
+        REFERENCES alunos(id_aluno)
+);
 
 Adicionar um usuário na tabela
 
