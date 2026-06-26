@@ -15,6 +15,7 @@ $nome = $_SESSION['nome'];
     <meta charset="UTF-8">
     <title>Sistema Academia</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 
@@ -24,7 +25,12 @@ $nome = $_SESSION['nome'];
         <h2>Sistema Academia</h2>
     </div>
 
-    <a href="sair.php" class="sair">Sair</a>
+     <nav class="navbar">
+        <a href="index.php">Início</a>
+        <a href="professores.php">Instrutores</a>
+        <a href="imc.php">Dieta Personalizada</a>
+        <a href="sair.php" class="sair">Sair</a>
+    </nav>
 </header>
 
 <main>
