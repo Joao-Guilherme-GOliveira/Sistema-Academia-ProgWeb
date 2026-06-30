@@ -224,3 +224,48 @@ main {
     border-radius: 8px;
     margin-top: 10px;
 }
+.pesquisa {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.pesquisa input {
+    padding: 12px;
+    width: 280px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.pesquisa input:focus {
+    border-color: #ff5a00;
+    box-shadow: 0 0 6px rgba(255, 90, 0, 0.4);
+}
+
+
+.pesquisa button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ff5a00;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+
+.pesquisa button:hover {
+    background: #e64a00;
+    transform: scale(1.05);
+}
+
+
+.pesquisa button:active {
+    transform: scale(0.97);
+}

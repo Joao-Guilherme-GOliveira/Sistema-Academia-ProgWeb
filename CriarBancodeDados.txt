@@ -177,11 +177,22 @@ VALUES ('Admin', 'admin@admin.com', MD5('123'), 'admin');
 Adicionar um instrutor
 
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
-VALUES ('Instrutor', 'instrutor@instrutor.com', MD5('123'), 'instrutor');
+VALUES ('Pablo Nistal', 'pablo@instrutor.com', MD5('123'), 'instrutor');
 INSERT INTO instrutores(id_usuario,cref,telefone,especialidade)
 VALUES
-(X,'123456-G/ES','(27)98765-4321','Musculação');
-(O x é o id do usuario)
+(3,'123456-G/ES','(27)98765-4321','Musculação');
+
+INSERT INTO usuarios (nome, email, senha, tipo_usuario)
+VALUES ('Phietro de Sousa', 'phietro@instrutor.com', MD5('123'), 'instrutor');
+INSERT INTO instrutores(id_usuario,cref,telefone,especialidade)
+VALUES
+(4,'7891011-G/ES','(27)98765-4543','Crossfit');
+
+INSERT INTO usuarios (nome, email, senha, tipo_usuario)
+VALUES ('Joao Oliveira', 'joao@instrutor.com', MD5('123'), 'instrutor');
+INSERT INTO instrutores(id_usuario,cref,telefone,especialidade)
+VALUES
+(5,'674241-G/ES','(27)98764-6742",'Boxing');
 
 INSERT INTO planos (nome_plano, valor, descricao) VALUES
 
