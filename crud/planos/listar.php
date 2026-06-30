@@ -2,11 +2,15 @@
 session_start();
 include "../../conexao.php";
 
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: ../../login.php");
+    exit;
+}
+
 if ($_SESSION['tipo_usuario'] != "admin") {
     header("Location: ../../index.php");
     exit;
 }
-
 $sql = "SELECT * FROM planos";
 $resultado = mysqli_query($conn,$sql);
 ?>

@@ -41,6 +41,11 @@ if ($_SESSION['tipo_usuario'] != "admin") {
         <p>Gerenciar planos da academia.</p>
     </a>
 
+    <a href="assinaturas/listar.php" class="admin-card">
+        <h2>Assinaturas</h2>
+        <p>Gerenciar assinaturas dos alunos.</p>
+    </a>
+
 </div>
 
 </div>

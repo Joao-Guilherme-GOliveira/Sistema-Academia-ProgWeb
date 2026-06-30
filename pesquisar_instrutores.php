@@ -2,6 +2,12 @@
 
 include "conexao.php";
 
+if (!isset($_SESSION['id_usuario'])) {
+    echo "<p>Sessão expirada. Faça login novamente.</p>";
+    exit;
+}
+
+
 if (!isset($conn) || !$conn) {
     die("Erro na conexão: " . mysqli_connect_error());
 }

@@ -1,4 +1,6 @@
- 	Comando para criar a database, depois cria a tabela usuarios e por fim adiciona seus atributos.
+-- ==========================
+-- Criar tabela e adicionar atributos
+-- ==========================
 
 CREATE DATABASE academia;
 USE academia;
@@ -164,7 +166,9 @@ CREATE TABLE avaliacoes_fisicas (
 );
 
 
-Adicionar um usuário na tabela
+-- ==========================
+-- Adicionar um usuario e aluno
+-- ==========================
 
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Aluno', 'aluno@aluno.com', MD5('123'), 'aluno');
@@ -173,13 +177,16 @@ INSERT INTO alunos
 VALUES
 (1, '111.111.111-11', '(27)99999-9999', '2002-05-10', 'Rua A');
 
-Adicionar um ADMIN
+-- ==========================
+-- Adicionar um ADM
+-- ==========================
 
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Admin', 'admin@admin.com', MD5('123'), 'admin');
 
-Adicionar um instrutor
-
+-- ==========================
+-- Adicionar Instrutores
+-- ==========================
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Pablo Nistal', 'pablo@instrutor.com', MD5('123'), 'instrutor');
 INSERT INTO instrutores(id_usuario,cref,telefone,especialidade)
@@ -196,7 +203,11 @@ INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Joao Oliveira', 'joao@instrutor.com', MD5('123'), 'instrutor');
 INSERT INTO instrutores(id_usuario,cref,telefone,especialidade)
 VALUES
-(5,'674241-G/ES','(27)98764-6742",'Boxing');
+(5,'674241-G/ES','(27)98764-6742','Boxing');
+
+-- ==========================
+-- Adicionar Planos
+-- ==========================
 
 INSERT INTO planos (nome_plano, valor, descricao) VALUES
 
@@ -205,3 +216,28 @@ INSERT INTO planos (nome_plano, valor, descricao) VALUES
 ('Prata', 99.90, 'Musculação, aulas coletivas e reavaliação mensal.'),
 
 ('Ouro', 149.90, 'Dieta personalizada, acesso ilimitado e prioridade no atendimento.');
+
+-- ==========================
+-- Adicionar Assinatura
+-- ==========================
+INSERT INTO assinaturas
+(id_aluno, id_plano, data_inicio, data_fim, status)
+VALUES
+(1, 1, '2026-06-30', '2026-07-30', 'Ativa');
+
+-- ==========================
+-- Adicionar Exercicios e Treinos
+-- ==========================
+INSERT INTO exercicios (nome_exercicio, series, repeticoes, descricao) VALUES
+('Supino reto', 4, 12, 'Cuidado com a lombar'),
+('Agachamento livre', 4, 10, 'Descer até 90 graus'),
+('Rosca direta', 3, 15, 'Controlar a descida');
+
+INSERT INTO treinos (id_aluno, id_instrutor, nome, objetivo) VALUES
+(1, 1, 'Treino A - Superior', 'Hipertrofia');
+
+INSERT INTO treino_exercicios (id_treino, id_exercicio) VALUES
+(1, 1), (1, 2), (1, 3);
+
+INSERT INTO pagamentos (id_assinatura, valor, data_pagamento, forma_pagamento, status) VALUES
+(1, 69.90, '2026-06-30', 'Pix', 'Pago');

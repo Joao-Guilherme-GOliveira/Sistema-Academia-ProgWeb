@@ -1,5 +1,11 @@
 <?php
+session_start();
 include "conexao.php";
+
+if (!isset($_SESSION['id_usuario'])) {
+    header("Location: login.php");
+    exit;
+}
 
 $sql = "SELECT * FROM planos";
 $result = mysqli_query($conn, $sql);
