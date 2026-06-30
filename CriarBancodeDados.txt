@@ -168,6 +168,10 @@ Adicionar um usuário na tabela
 
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Aluno', 'aluno@aluno.com', MD5('123'), 'aluno');
+INSERT INTO alunos
+(id_usuario, cpf, telefone, data_nasc, endereco)
+VALUES
+(1, '111.111.111-11', '(27)99999-9999', '2002-05-10', 'Rua A');
 
 Adicionar um ADMIN
 

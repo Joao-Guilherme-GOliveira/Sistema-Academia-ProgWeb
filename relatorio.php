@@ -17,7 +17,7 @@ if (!$conn) {
 
 $sql = "SELECT
             u.nome AS aluno,
-            p.nome AS plano,
+            p.nome_plano AS plano,
             a.data_inicio,
             a.data_fim,
             a.status
