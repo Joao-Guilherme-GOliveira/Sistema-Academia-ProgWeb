@@ -30,6 +30,7 @@ if (isset($_POST['entrar'])) {
     <meta charset="UTF-8">
     <title>Login - Academia</title>
     <link rel="stylesheet" href="css/stylelogin.css">
+    <link rel="stylesheet" href="css/stylecadastro.css">
 </head>
 <body class="login-body">
 
@@ -43,6 +44,8 @@ if (isset($_POST['entrar'])) {
         <input type="password" name="senha" placeholder="Senha" required>
 
         <button type="submit" name="entrar">Entrar</button>
+
+        <p class="link-login">Não tem conta? <a href="cadastro.php">Cadastre-se</a></p>
     </form>
 
     <?php
