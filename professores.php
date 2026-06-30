@@ -15,7 +15,7 @@ $nome = $_SESSION['nome'];
     <meta charset="UTF-8">
     <title>Sistema Academia</title>
     <link rel="stylesheet" href="css/style.css">
-     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 
@@ -41,46 +41,47 @@ $nome = $_SESSION['nome'];
         <p>Veja os instrutores de nossa academia.</p>
     </section>
 
-    <section class="cards">
+    <section class="pesquisa">
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar instrutor">
 
-        <a class="card">
-            <h3>João Silva</h3>
-            <p>CREF: 123456-G/ES</p>
-            <p>Telefone: (27) 98765-4321</p>
-            <p>Especialidade: Musculação</p>
-        </a>
+        <button
+            type="button"
+            onclick="pesquisarInstrutor()">
+            Pesquisar
+        </button>
+    </section>
+    <br>
 
-        <a class="card">
-            <h3>Pedro Costa</h3>
-            <p>CREF: 567890-G/ES</p>
-            <p>Telefone: (27) 94321-0987</p>
-            <p>Especialidade: Cross Training</p>
-        </a>
-
-        <a class="card">
-            <h3>Ana Santos</h3>
-            <p>CREF: 456789-G/ES</p>
-            <p>Telefone: (27) 95432-1098</p>
-            <p>Especialidade: Alongamento</p>
-        </a>
-
-        <a class="card">
-            <h3>Maria Souza</h3>
-            <p>CREF: 234567-G/ES</p>
-            <p>Telefone: (27) 97654-3210</p>
-            <p>Especialidade: Hipertrofia</p>
-        </a>
-
-        <a class="card">
-            <h3>Carlos Oliveira</h3>
-            <p>CREF: 345678-G/ES</p>
-            <p>Telefone: (27) 96543-2109</p>
-            <p>Especialidade: Cross Training</p>
-        </a>
+    <section id="resultadoPesquisa" class="cards">
 
     </section>
 
 </main>
+
+<script src="ajax.js"></script>
+
+<script>
+
+function pesquisarInstrutor(){
+
+    usaAjax(
+        "pesquisar_instrutores.php?nome=" +
+        document.getElementById("pesquisa").value,
+        "resultadoPesquisa"
+    );
+
+}
+
+window.onload = function(){
+
+    pesquisarInstrutor();
+
+}
+
+</script>
 
 </body>
 </html>

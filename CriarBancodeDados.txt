@@ -107,6 +107,14 @@ CREATE TABLE exercicio_equipamento (
         REFERENCES equipamentos(id_equipamento)
 );
 
+CREATE TABLE planos (
+    id_plano INT AUTO_INCREMENT PRIMARY KEY,
+    nome_plano VARCHAR(50) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    descricao TEXT
+);
+
+
 -- ==========================
 -- ASSINATURAS
 -- ==========================
@@ -156,17 +164,24 @@ CREATE TABLE avaliacoes_fisicas (
 );
 
 
-CREATE TABLE planos (
-    id_plano INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
-    valor DECIMAL(10,2) NOT NULL,
-    descricao TEXT
-);
-
 Adicionar um usuário na tabela
 
 INSERT INTO usuarios (nome, email, senha, tipo_usuario)
 VALUES ('Aluno', 'aluno@aluno.com', MD5('123'), 'aluno');
+
+Adicionar um ADMIN
+
+INSERT INTO usuarios (nome, email, senha, tipo_usuario)
+VALUES ('Admin', 'admin@admin.com', MD5('123'), 'admin');
+
+Adicionar um instrutor
+
+INSERT INTO usuarios (nome, email, senha, tipo_usuario)
+VALUES ('Instrutor', 'instrutor@instrutor.com', MD5('123'), 'instrutor');
+INSERT INTO instrutores(id_usuario,cref,telefone,especialidade)
+VALUES
+(X,'123456-G/ES','(27)98765-4321','Musculação');
+(O x é o id do usuario)
 
 INSERT INTO planos (nome_plano, valor, descricao) VALUES
 
