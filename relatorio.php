@@ -59,7 +59,7 @@ $resultado = mysqli_query($conn, $sql);
         <a href="professores.php">Instrutores</a>
         <a href="imc.php">Dieta Personalizada</a>
         <a href="planos.php">Planos</a>
-        <a href="relatorios.php">Relatórios</a>
+        <a href="relatorio.php">Relatórios</a>
         <a href="sair.php" class="sair">Sair</a>
     </nav>
 
