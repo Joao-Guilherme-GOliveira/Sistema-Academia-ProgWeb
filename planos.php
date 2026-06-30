@@ -1,3 +1,9 @@
+<?php
+include "conexao.php";
+
+$sql = "SELECT * FROM planos";
+$result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,43 +35,34 @@
 
     <div class="planos-cards">
 
-        <div class="plano-card bronze">
-            <h2>Plano Bronze</h2>
-            <h3>R$ 69,90/mês</h3>
-            <ul>
-                <li>Acesso à musculação</li>
-                <li>Avaliação física inicial</li>
-                <li>Treino personalizado</li>
-                <li>Uso dos equipamentos</li>
-            </ul>
-            <button>Assinar Plano</button>
-        </div>
+<?php while ($plano = mysqli_fetch_assoc($result)) { ?>
 
-        <div class="plano-card prata">
-            <h2>Plano Prata</h2>
-            <h3>R$ 99,90/mês</h3>
-            <ul>
-                <li>Tudo do Plano Bronze</li>
-                <li>Aulas coletivas</li>
-                <li>Reavaliação mensal</li>
-                <li>Suporte com instrutores</li>
-            </ul>
-            <button>Assinar Plano</button>
-        </div>
+    <div class="plano-card">
+        
+        <h2><?php echo $plano['nome_plano']; ?></h2>
 
-        <div class="plano-card ouro">
-            <h2>Plano Ouro</h2>
-            <h3>R$ 149,90/mês</h3>
-            <ul>
-                <li>Tudo do Plano Prata</li>
-                <li>Dieta personalizada</li>
-                <li>Acesso ilimitado</li>
-                <li>Prioridade no atendimento</li>
-            </ul>
-            <button>Assinar Plano</button>
-        </div>
+        <h3>
+            R$ <?php echo number_format($plano['valor'], 2, ',', '.'); ?>/mês
+        </h3>
+
+        <ul>
+            <?php 
+            $itens = explode(".", $plano['descricao']); 
+            foreach ($itens as $item) {
+                if (trim($item) != "") {
+                    echo "<li>" . trim($item) . "</li>";
+                }
+            }
+            ?>
+        </ul>
+
+        <button>Assinar Plano</button>
 
     </div>
+
+<?php } ?>
+
+</div>
 </section>
 </body>
 </html>
