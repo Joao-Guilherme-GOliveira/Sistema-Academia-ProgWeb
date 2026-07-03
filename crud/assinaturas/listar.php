@@ -30,8 +30,7 @@ $sql = "SELECT
 
 $resultado = mysqli_query($conn, $sql);
 
-// Formata AAAA-MM-DD para DD/MM/AAAA sem usar date()/strtotime()
-// (evita warning de timezone, já que a coluna no banco é DATE puro)
+
 function formatarData($data) {
     $partes = explode("-", $data);
     return $partes[2] . "/" . $partes[1] . "/" . $partes[0];

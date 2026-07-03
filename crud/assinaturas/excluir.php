@@ -17,7 +17,7 @@ $id = intval($_GET['id']);
 $sql = "DELETE FROM assinaturas WHERE id_assinatura=$id";
 
 if (!mysqli_query($conn, $sql)) {
-    // Provavelmente existe pagamento vinculado a essa assinatura (FK RESTRICT)
+    
     header("Location: listar.php?erro=" . urlencode("Não é possível excluir: existem pagamentos vinculados a esta assinatura."));
     exit;
 }

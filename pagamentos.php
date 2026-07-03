@@ -10,7 +10,7 @@ if (!isset($_SESSION['id_usuario'])) {
 $nome = $_SESSION['nome'];
 $id_usuario = $_SESSION['id_usuario'];
 
-// Descobre o id_aluno do usuário logado
+
 $sqlAluno = mysqli_query($conn, "SELECT id_aluno FROM alunos WHERE id_usuario=$id_usuario");
 $alunoRow = mysqli_fetch_assoc($sqlAluno);
 
@@ -19,7 +19,7 @@ $pagamentos = null;
 if ($alunoRow) {
     $id_aluno = $alunoRow['id_aluno'];
 
-    // Pagamentos das assinaturas do aluno, com o nome do plano
+   
     $pagamentos = mysqli_query($conn, "
         SELECT p.valor, p.data_pagamento, p.forma_pagamento, p.status, pl.nome_plano
         FROM pagamentos p
@@ -30,7 +30,7 @@ if ($alunoRow) {
     ");
 }
 
-// Formata AAAA-MM-DD para DD/MM/AAAA sem usar date()/strtotime()
+
 function formatarData($data) {
     $partes = explode("-", $data);
     return $partes[2] . "/" . $partes[1] . "/" . $partes[0];
