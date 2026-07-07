@@ -25,8 +25,8 @@ if (!$assinatura) {
 
 if (isset($_POST['editar'])) {
 
-    $id_aluno    = intval($_POST['id_aluno']);
-    $id_plano    = intval($_POST['id_plano']);
+    $id_aluno    = $_POST['id_aluno'];
+    $id_plano    = $_POST['id_plano'];
     $data_inicio = $_POST['data_inicio'];
     $data_fim    = $_POST['data_fim'];
     $status      = mysqli_real_escape_string($conn, $_POST['status']);
