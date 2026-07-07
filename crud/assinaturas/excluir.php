@@ -12,7 +12,7 @@ if ($_SESSION['tipo_usuario'] != "admin") {
     exit;
 }
 
-$id = intval($_GET['id']);
+$id=$_GET['id'];
 
 $sql = "DELETE FROM assinaturas WHERE id_assinatura=$id";
 
