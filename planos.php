@@ -34,8 +34,6 @@ $result = mysqli_query($conn, $sql);
         <a href="planos.php">Planos</a>
         <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
             <a href="crud/admin.php" class="admin-link">Admin</a>
-        <?php endif; ?>
-        <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
             <a href="relatorio.php" class="admin-link">Relatorios</a>
         <?php endif; ?>
         <a href="sair.php" class="sair">Sair</a>
