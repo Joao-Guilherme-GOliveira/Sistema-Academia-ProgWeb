@@ -6,6 +6,10 @@ if (!isset($_SESSION['id_usuario'])) {
     header("Location: login.php");
     exit;
 }
+if ($_SESSION['tipo_usuario'] != "admin") {
+    header("Location: ../index.php");
+    exit;
+}
 
 $nome = $_SESSION['nome'];
 
@@ -59,7 +63,12 @@ $resultado = mysqli_query($conn, $sql);
         <a href="professores.php">Instrutores</a>
         <a href="imc.php">Dieta Personalizada</a>
         <a href="planos.php">Planos</a>
-        <a href="relatorio.php">Relatórios</a>
+        <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
+            <a href="crud/admin.php" class="admin-link">Admin</a>
+        <?php endif; ?>
+        <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
+            <a href="relatorio.php" class="admin-link">Relatorios</a>
+        <?php endif; ?>
         <a href="sair.php" class="sair">Sair</a>
     </nav>
 

@@ -74,7 +74,9 @@ if ($alunoRow) {
         <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
             <a href="crud/admin.php" class="admin-link">Admin</a>
         <?php endif; ?>
-        <a href="relatorio.php">Relatórios</a>
+        <?php if ($_SESSION['tipo_usuario'] == 'admin'): ?>
+            <a href="relatorio.php" class="admin-link">Relatorios</a>
+        <?php endif; ?>
         <a href="sair.php" class="sair">Sair</a>
     </nav>
 </header>
